@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FancyFrenchStore.Data.Models
 {
-    internal class Products
+    public class Product
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string SKU { get; set; }

@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FancyFrenchStore.Data
-    public class Addresses
+{ 
+    public class Address
     {
     public Guid Id { get; set; } = Guid.NewGuid();
     public int CustomerID { get; set; } 

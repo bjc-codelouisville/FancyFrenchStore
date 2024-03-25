@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace FancyFrenchStore.Data.Models
 {
-    internal class Payments
+    public class OrderItem
     {
         public Guid Id { get; set; } = Guid.NewGuid();
+        public int ProductID { get; set; }
+        public decimal Price { get; set; }
         public int OrderID { get; set; }
-        public int PaymentTypeID { get; set; }
-        public string PaymentAccount { get; set; }
-        public int PaymentAddressID { get; set; }
-        public decimal PaymentAmount { get; set; }
         public string CreatedDate { get; set; }
         public string UpdatedDate { get; set; }
     }

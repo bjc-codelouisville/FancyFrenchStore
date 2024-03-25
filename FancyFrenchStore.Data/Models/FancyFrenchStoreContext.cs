@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using FancyFrenchStore.Domain;
+using Microsoft.EntityFrameworkCore.Design;
 using System.Net;
 
-namespace FancyFrenchStore.Data
+namespace FancyFrenchStore.Data.Models
 {
     public class FancyFrenchStoreContext : DbContext
     {
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<OderItem> OderItems { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<PaymentType> PaymentTypes { get; set; }
