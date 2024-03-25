@@ -14,11 +14,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
+    <PackageReference Include="NSwag.AspNetCore" Version="14.0.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FancyFrenchStore.Data\FancyFrenchStore.Data.csproj" />
-    <ProjectReference Include="..\FancyFrenchStore.Test\FancyFrenchStore.Test.csproj" />
   </ItemGroup>
 
 </Project>

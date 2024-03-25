@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FancyFrenchStore.UI", "Fanc
 		{DB39001A-D9E2-4772-BFB4-2BCE17CA2FCA} = {DB39001A-D9E2-4772-BFB4-2BCE17CA2FCA}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FancyFrenchStore.Test", "FancyFrenchStore.Test\FancyFrenchStore.Test.csproj", "{9E978ACF-6C43-4701-A167-5B4DDABC97E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FancyFrenchStore.API", "FancyFrenchStore.API\FancyFrenchStore.API.csproj", "{ED7064F6-061F-4EA4-AF6A-4BE803EF62C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +26,10 @@ Global
 		{CE66AAEF-3A89-4D1B-9D6B-287C89D5149A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE66AAEF-3A89-4D1B-9D6B-287C89D5149A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE66AAEF-3A89-4D1B-9D6B-287C89D5149A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E978ACF-6C43-4701-A167-5B4DDABC97E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E978ACF-6C43-4701-A167-5B4DDABC97E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E978ACF-6C43-4701-A167-5B4DDABC97E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E978ACF-6C43-4701-A167-5B4DDABC97E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED7064F6-061F-4EA4-AF6A-4BE803EF62C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED7064F6-061F-4EA4-AF6A-4BE803EF62C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED7064F6-061F-4EA4-AF6A-4BE803EF62C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED7064F6-061F-4EA4-AF6A-4BE803EF62C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
