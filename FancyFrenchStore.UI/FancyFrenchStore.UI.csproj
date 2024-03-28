@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FancyFrenchStore.Data\FancyFrenchStore.Data.csproj" />
+    <ProjectReference Include="..\FancyFrenchStore.Data\FancyFrenchStore.csproj" />
   </ItemGroup>
 
 </Project>

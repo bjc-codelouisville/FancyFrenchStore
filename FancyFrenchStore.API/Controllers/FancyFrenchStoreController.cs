@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using FancyFrenchStore.Data.Models;
+using FancyFrenchStore.Data;
 
 namespace FancyFrenchStore.API.Controllers
 {

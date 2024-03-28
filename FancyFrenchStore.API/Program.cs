@@ -1,4 +1,4 @@
-using FancyFrenchStore.Data.Models;
+using FancyFrenchStore;
 
 var builder = WebApplication.CreateBuilder(args);
 

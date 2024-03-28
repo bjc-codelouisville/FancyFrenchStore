@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using System.Net;
 
-namespace FancyFrenchStore.Data.Models
+namespace FancyFrenchStore
 {
     public class FancyFrenchStoreContext : DbContext
     {
