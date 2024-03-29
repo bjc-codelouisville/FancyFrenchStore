@@ -9,24 +9,6 @@ namespace FancyFrenchStore
 {
     public class ProductLogic
     {
-        //public struct Product(string sku, string upc, string name, int brandId, string model, string description, decimal price, decimal prodPkgLength, decimal prodPkgWidth, decimal prodPkgHeight, decimal prodPkgWeight, bool discontinued)
-        //{
-        //    Id = Guid.NewGuid();
-        //    SKU = sku;
-        //    UPC = upc;
-        //    Name = name;
-        //    BrandID = brandId;
-        //    Model = model;
-        //    Description = description;
-        //    Price = price;
-        //    ProdPkgLength = prodPkgLength;
-        //    ProdPkgWidth = prodPkgWidth;
-        //    ProdPkgHeight = prodPkgHeight;
-        //    ProdPkgWeight = prodPkgWeight;
-        //    Discontinued = discontinued;
-        //    CreatedDate = DateTime.Now; // Set the initial update timestamp
-        //    UpdatedDate = DateTime.Now; // Set the initial update timestamp
-        //}
         public void AddProduct()
         {
             using (var context = new FancyFrenchStoreContext())
@@ -34,7 +16,8 @@ namespace FancyFrenchStore
                 var myProduct = new Product();
                 //myProduct.SKU = Console.ReadLine();
                 //myProduct.UPC = Console.ReadLine();
-                //myProduct.Name = Console.ReadLine();
+                Console.WriteLine("Enter a Name:");
+                myProduct.Name = Console.ReadLine();
                 //myProduct.BrandID = Console.ReadLine();
                 //myProduct.Model = Console.ReadLine();
                 //myProduct.Description = Console.ReadLine();
@@ -49,15 +32,22 @@ namespace FancyFrenchStore
                 context.SaveChanges();
             }
         }
-        //// Display product details
-        //public void DisplayProduct()
-        //{
-        //    using (var context = new FancyFrenchStoreContext())
-        //    {
-        //        Console.WriteLine($"ID: {Id}, SKU: {SKU}, UPC: {UPC}, Name: {Name}, Brand ID: {BrandID}, Model: {Model}, Description: {Description}, Price: {Price:C}, Packaging LxWxH: {ProdPkgLength}x{ProdPkgWidth}x{ProdPkgHeight}, Weight: {ProdPkgWeight}kg, Discontinued: {Discontinued}, Created: {CreatedDate}, Updated: {UpdatedDate}");
-        //    }
-
-        //}
+        // Display product details
+        public void DisplayAllProducts()
+        {
+            using (var context = new FancyFrenchStoreContext())
+            {
+                //Console.WriteLine($"ID: {Id}, SKU: {SKU}, UPC: {UPC}, Name: {Name}, Brand ID: {BrandID}, Model: {Model}, Description: {Description}, Price: {Price:C}, Packaging LxWxH: {ProdPkgLength}x{ProdPkgWidth}x{ProdPkgHeight}, Weight: {ProdPkgWeight}kg, Discontinued: {Discontinued}, Created: {CreatedDate}, Updated: {UpdatedDate}");
+                foreach (var product in context.Products)
+                {
+                    Console.WriteLine("<-------------------- Begin Product -------------------->");
+                    Console.WriteLine("Product ID: " + product.Id);
+                    Console.WriteLine("Product Name: " + product.Name);
+                    Console.WriteLine("Product Price: " + product.Price);
+                    Console.WriteLine("<-------------------- End Product -------------------->");
+                }
+            }
+        }
         //// Method to update certain product details
         //public void UpdateProduct(string name, string model, string description, decimal price, bool discontinued)
         //{
@@ -71,5 +61,6 @@ namespace FancyFrenchStore
         //        UpdatedDate = DateTime.Now;
         //    }
         //}
+        // Method to 
     }
 }

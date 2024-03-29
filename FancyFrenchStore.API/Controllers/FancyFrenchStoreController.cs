@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using FancyFrenchStore.Data.Models;
-using FancyFrenchStore.Data;
+using Microsoft.EntityFrameworkCore;
+using FancyFrenchStore;
 
 namespace FancyFrenchStore.API.Controllers
 {
@@ -16,89 +16,42 @@ namespace FancyFrenchStore.API.Controllers
             _context = context;
         }
 
-        [HttpGet(Name = "GetProducts")]
-        public IEnumerable<Product> Get()
+        [HttpGet("Products/")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            //if (_context.Products == null)
-            //{
-            //    return NotFound();
-            //}
-            return _context.Products;//.ToListAsync();
+            if (_context.Products == null)
+            {
+                return NotFound();
+            }
+            return await _context.Products.ToListAsync();
         }
+        [HttpGet("Products/{id}")]
+        public async Task<ActionResult<Product>> GetProduct(Guid id)
+        {
+            if (_context.Products == null)
+            {
+                return NotFound();
+            }
+            var product = await _context.Products.FindAsync(id);
 
-        //// GET: FancyFrenchStoreController
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+            if (product == null)
+            {
+                return NotFound();
+            }
 
-        //// GET: FancyFrenchStoreController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
+            return product;
+        }
+        [HttpPost("Products/")]
+        public async Task<ActionResult<Product>> PostProduct(Product product)
+        {
+            if (_context.Products == null)
+            {
+                return Problem("_context.Products is null.");
+            }
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
 
-        //// GET: FancyFrenchStoreController/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: FancyFrenchStoreController/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: FancyFrenchStoreController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: FancyFrenchStoreController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: FancyFrenchStoreController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: FancyFrenchStoreController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
+        }
     }
 }
