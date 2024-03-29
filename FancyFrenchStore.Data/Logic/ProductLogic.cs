@@ -14,19 +14,30 @@ namespace FancyFrenchStore
             using (var context = new FancyFrenchStoreContext())
             {
                 var myProduct = new Product();
-                //myProduct.SKU = Console.ReadLine();
-                //myProduct.UPC = Console.ReadLine();
+                Console.WriteLine("Enter the SKU:");
+                myProduct.SKU = Console.ReadLine();
+                Console.WriteLine("Enter a UPC:");
+                myProduct.UPC = Console.ReadLine();
                 Console.WriteLine("Enter a Name:");
                 myProduct.Name = Console.ReadLine();
+                //Console.WriteLine("Enter a BrandID:");
                 //myProduct.BrandID = Console.ReadLine();
-                //myProduct.Model = Console.ReadLine();
-                //myProduct.Description = Console.ReadLine();
-                //myProduct.Price = Console.ReadLine();
-                //myProduct.ProdPkgLength = Console.ReadLine();
-                //myProduct.ProdPkgWidth = Console.ReadLine();
-                //myProduct.ProdPkgHeight = Console.ReadLine();
-                //myProduct.ProdPkgWeight = Console.ReadLine();
-                //myProduct.Discontinued = Console.ReadLine();
+                Console.WriteLine("Enter a Model:");
+                myProduct.Model = Console.ReadLine();
+                Console.WriteLine("Enter a Description:");
+                myProduct.Description = Console.ReadLine();
+                Console.WriteLine("Enter a Price:");
+                myProduct.Price = Convert.ToDecimal(Console.ReadLine());
+                Console.WriteLine("Enter a ProdPkgLength:");
+                myProduct.ProdPkgLength = Convert.ToDecimal(Console.ReadLine());
+                Console.WriteLine("Enter a ProdPkgWidth:");
+                myProduct.ProdPkgWidth = Convert.ToDecimal(Console.ReadLine());
+                Console.WriteLine("Enter a ProdPkgHeight:");
+                myProduct.ProdPkgHeight = Convert.ToDecimal(Console.ReadLine());
+                Console.WriteLine("Enter a ProdPkgWeight:");
+                myProduct.ProdPkgWeight = Convert.ToDecimal(Console.ReadLine());
+                Console.WriteLine("Enter a Discontinued (true or false:");
+                myProduct.Discontinued = Convert.ToBoolean(Console.ReadLine());
 
                 context.Products.Add(myProduct);
                 context.SaveChanges();
@@ -48,19 +59,19 @@ namespace FancyFrenchStore
                 }
             }
         }
-        //// Method to update certain product details
-        //public void UpdateProduct(string name, string model, string description, decimal price, bool discontinued)
-        //{
-        //    using (var context = new FancyFrenchStoreContext())
-        //    {
-        //        Name = name;
-        //        Model = model;
-        //        Description = description;
-        //        Price = price;
-        //        Discontinued = discontinued;
-        //        UpdatedDate = DateTime.Now;
-        //    }
-        //}
-        // Method to 
+        public void DisplayAllProductsBrands()
+        {
+            using (var context = new FancyFrenchStoreContext())
+            {
+                foreach (var product in context.Products)
+                {
+                    Console.WriteLine("<-------------------- Begin Product -------------------->");
+                    Console.WriteLine("Product ID: " + product.Id);
+                    Console.WriteLine("Product Name: " + product.Name);
+                    Console.WriteLine("Product Price: " + product.Price);
+                    Console.WriteLine("<-------------------- End Product -------------------->");
+                }
+            }
+        }
     }
 }

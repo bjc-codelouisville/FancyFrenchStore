@@ -53,5 +53,42 @@ namespace FancyFrenchStore.API.Controllers
 
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
+        [HttpGet("Brands/")]
+        public async Task<ActionResult<IEnumerable<Brand>>> GetBrands()
+        {
+            if (_context.Brands == null)
+            {
+                return NotFound();
+            }
+            return await _context.Brands.ToListAsync();
+        }
+        [HttpGet("Brands/{id}")]
+        public async Task<ActionResult<Brand>> GetBrand(Guid id)
+        {
+            if (_context.Brands == null)
+            {
+                return NotFound();
+            }
+            var brand = await _context.Brands.FindAsync(id);
+
+            if (brand == null)
+            {
+                return NotFound();
+            }
+
+            return brand;
+        }
+        [HttpPost("Brands/")]
+        public async Task<ActionResult<Brand>> PostBrand(Brand brand)
+        {
+            if (_context.Brands == null)
+            {
+                return Problem("_context.Brands is null.");
+            }
+            _context.Brands.Add(brand);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetBrand", new { id = brand.Id }, brand);
+        }
     }
 }
