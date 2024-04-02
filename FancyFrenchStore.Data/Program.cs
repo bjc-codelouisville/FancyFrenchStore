@@ -46,23 +46,15 @@ class Program
                     {
                         productLogic.AddProduct();
                     }
-                    Console.WriteLine("----------");
-                    Console.WriteLine("Products Menu");
-                    Console.WriteLine("1. Product List");
-                    Console.WriteLine("2. Add New Product");
-                    // Console.WriteLine("3. Update Existing Product");
-                    Console.WriteLine("4. Product List with Brands");
-                    Console.WriteLine("Type 'exit' to quit");
-                    userInput = Console.ReadLine();
                     //if (userInput == "3")
                     //{
                     //    productLogic.DisplayAllProducts();
                     //}
                     if (userInput == "4")
                     {
-                        using (var context = new ProductBrandDTOContext())
+                        using (var context = new FancyFrenchStoreContext())
                         {
-                            var productsWithBrands = context.GetProductsWithBrands();
+                            var productsWithBrands = ProductBrandDTO.GetProductsWithBrandsAsync();
                             Console.WriteLine("ID\tSKU\t\tUPC\t\tBrand\t\tName\t\t\tPrice");
                             Console.WriteLine("-------------------------------------------------------------------------");
                             foreach (var product in productsWithBrands)
@@ -73,6 +65,14 @@ class Program
                             }
                         }
                     }
+                    Console.WriteLine("----------");
+                    Console.WriteLine("Products Menu");
+                    Console.WriteLine("1. Product List");
+                    Console.WriteLine("2. Add New Product");
+                    // Console.WriteLine("3. Update Existing Product");
+                    Console.WriteLine("4. Product List with Brands");
+                    Console.WriteLine("Type 'exit' to quit");
+                    userInput = Console.ReadLine();
                 }
             }
             if (userInput == "2")
