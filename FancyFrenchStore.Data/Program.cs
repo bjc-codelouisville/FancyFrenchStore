@@ -8,6 +8,12 @@ class Program
 {
     static void Main()
     {
+        // Check if the EF_MIGRATIONS environment variable is set
+        if (Environment.GetEnvironmentVariable("EF_MIGRATIONS") == "true")
+        {
+            Console.WriteLine("Skipping application startup due to EF migrations.");
+            return; // Exit the application early.
+        }
         Console.WriteLine("Main Menu");
         Console.WriteLine("1. Products");
         Console.WriteLine("2. Brands");
