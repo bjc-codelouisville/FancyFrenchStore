@@ -88,7 +88,7 @@ namespace FancyFrenchStore.API.Controllers
             _context.Brands.Add(brand);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBrand", new { id = brand.Id }, brand);
+            return CreatedAtAction("GetBrand", new { id = brand.ID }, brand);
         }
     }
 }

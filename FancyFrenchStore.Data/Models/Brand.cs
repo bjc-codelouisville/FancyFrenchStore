@@ -8,7 +8,7 @@ namespace FancyFrenchStore
 {
     public class Brand
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public int ID { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Website { get; set; }

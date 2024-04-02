@@ -19,5 +19,12 @@ namespace FancyFrenchStore
             optionsBuilder.UseSqlServer(
                 "Data Source= (localdb)\\MSSQLLocalDB; Initial Catalog=FancyFrenchStoreData");
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.SeedFromJson<Product>("../FancyFrenchStore.Data/DemoData/products.json");
+            modelBuilder.SeedFromJson<Brand>("../FancyFrenchStore.Data/DemoData/brands.json");
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace FancyFrenchStore
         public string? SKU { get; set; }
         public string? UPC { get; set; }
         public string? Name { get; set; }
-        public Guid? BrandID { get; set; }
+        public int? BrandID { get; set; }
         public string? Model { get; set; }
         public string? Description { get; set; }
         public decimal? Price { get; set; }

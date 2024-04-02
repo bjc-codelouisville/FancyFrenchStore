@@ -1,0 +1,23 @@
+[
+  {
+    "ID":  1,
+    "Name": "Furmano's",
+    "Description": "Great Taste is a family tradition.",
+    "Website": "https://www.furmanos.com/",
+    "LogoURL": "https://www.furmanos.com/sites/all/themes/bootstrap/furmanos/logo.png"
+  },
+  {
+    "ID": 2,
+    "Name": "Rich's",
+    "Description": "Infinite possibilities.  One Family.",
+    "Website": "https://www.richsusa.com/business-solutions/foodservice/",
+    "LogoURL": "https://www.richsusa.com/wp-content/uploads/2020/02/logo.png"
+  },
+  {
+    "ID": 3,
+    "Name": "Ventura Foods Products",
+    "Description": "Together We Make Food Extraordinary",
+    "Website": "https://www.venturafoods.ca/",
+    "LogoURL": "https://www.venturafoods.ca/wp-content/uploads/sites/2/2023/04/ventura_foods_CANADA_logo_white-2.png"
+  }
+]

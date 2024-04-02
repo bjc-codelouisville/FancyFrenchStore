@@ -8,8 +8,6 @@ class Program
 {
     static void Main()
     {
-
-
         Console.WriteLine("Main Menu");
         Console.WriteLine("1. Products");
         Console.WriteLine("2. Brands");
