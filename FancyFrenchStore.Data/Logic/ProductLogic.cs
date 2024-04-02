@@ -55,7 +55,6 @@ namespace FancyFrenchStore
                     Console.WriteLine("Product ID: " + product.Id);
                     Console.WriteLine("Product Name: " + product.Name);
                     Console.WriteLine("Product Price: " + product.Price);
-                    Console.WriteLine("<-------------------- End Product -------------------->");
                 }
             }
         }
@@ -69,7 +68,6 @@ namespace FancyFrenchStore
                     Console.WriteLine("Product ID: " + product.Id);
                     Console.WriteLine("Product Name: " + product.Name);
                     Console.WriteLine("Product Price: " + product.Price);
-                    Console.WriteLine("<-------------------- End Product -------------------->");
                 }
             }
         }

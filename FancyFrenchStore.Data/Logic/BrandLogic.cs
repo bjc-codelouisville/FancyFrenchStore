@@ -40,7 +40,6 @@ namespace FancyFrenchStore
                     Console.WriteLine("Brand Description: " + Brand.Description);
                     Console.WriteLine("Brand Website: " + Brand.Website);
                     Console.WriteLine("Brand LogoURL: " + Brand.LogoURL);
-                    Console.WriteLine("<-------------------------------------------------->");
                 }
             }
         }

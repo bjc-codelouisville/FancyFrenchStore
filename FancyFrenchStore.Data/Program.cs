@@ -28,12 +28,12 @@ class Program
             if (userInput == "1")
             {
                 ProductLogic productLogic = new ProductLogic();
-                Console.Clear();
+                Console.WriteLine("----------");
                 Console.WriteLine("Products Menu");
                 Console.WriteLine("1. Product List");
                 Console.WriteLine("2. Add New Product");
                 // Console.WriteLine("3. Update Existing Product");
-                // Console.WriteLine("4. Product List with Brands");
+                Console.WriteLine("4. Product List with Brands");
                 Console.WriteLine("Type 'exit' to quit");
                 userInput = Console.ReadLine();
                 while (userInput.ToLower() != "exit")
@@ -46,20 +46,39 @@ class Program
                     {
                         productLogic.AddProduct();
                     }
-                    Console.Clear();
+                    Console.WriteLine("----------");
                     Console.WriteLine("Products Menu");
                     Console.WriteLine("1. Product List");
                     Console.WriteLine("2. Add New Product");
                     // Console.WriteLine("3. Update Existing Product");
-                    // Console.WriteLine("4. Product List with Brands");
+                    Console.WriteLine("4. Product List with Brands");
                     Console.WriteLine("Type 'exit' to quit");
                     userInput = Console.ReadLine();
+                    //if (userInput == "3")
+                    //{
+                    //    productLogic.DisplayAllProducts();
+                    //}
+                    if (userInput == "4")
+                    {
+                        using (var context = new ProductBrandDTOContext())
+                        {
+                            var productsWithBrands = context.GetProductsWithBrands();
+                            Console.WriteLine("ID\tSKU\t\tUPC\t\tBrand\t\tName\t\t\tPrice");
+                            Console.WriteLine("-------------------------------------------------------------------------");
+                            foreach (var product in productsWithBrands)
+                            {
+                                //Console.WriteLine($"{product.Id,-5} {product.SKU,-10} {product.UPC,-15} {product.Brand,-20} {product.Name,-25} ${product.Price,10:N2}");
+                                Console.WriteLine($"{product.Id}\t{product.SKU}\t{product.UPC}\t{product.Brand}\t{product.Name}\t${product.Price}");
+
+                            }
+                        }
+                    }
                 }
             }
             if (userInput == "2")
             {
                 BrandLogic brandLogic = new BrandLogic();
-                Console.Clear();
+                Console.WriteLine("----------");
                 Console.WriteLine("Brands Menu");
                 Console.WriteLine("1. Brand List");
                 Console.WriteLine("2. Add New Brand");
@@ -77,7 +96,7 @@ class Program
                     {
                         brandLogic.AddBrand();
                     }
-                    Console.Clear();
+                    Console.WriteLine("----------");
                     Console.WriteLine("Brands Menu");
                     Console.WriteLine("1. Brand List");
                     Console.WriteLine("2. Add New Brand");
@@ -89,7 +108,7 @@ class Program
             }
             //if (userInput == "3")
             //{
-            //    Console.Clear();
+            //    Console.WriteLine("----------");
             //    Console.WriteLine("Customers Menu");
             //    Console.WriteLine("1. Customer List");
             //    Console.WriteLine("2. Add New Customer");
@@ -99,7 +118,7 @@ class Program
             //}
             //if (userInput == "4")
             //{
-            //    Console.Clear();
+            //    Console.WriteLine("----------");
             //    Console.WriteLine("Payments Menu");
             //    Console.WriteLine("1. Payment List");
             //    Console.WriteLine("2. Add New Payment");
@@ -109,7 +128,7 @@ class Program
             //}
             //if (userInput == "5")
             //{
-            //    Console.Clear();
+            //    Console.WriteLine("----------");
             //    Console.WriteLine("Brands Menu");
             //    Console.WriteLine("1. Brand List");
             //    Console.WriteLine("2. Add New Brand");
@@ -118,7 +137,7 @@ class Program
             //    Console.WriteLine("Type 'exit' to quit");
             //}
 
-            Console.Clear();
+            Console.WriteLine("----------");
             Console.WriteLine("Main Menu");
             Console.WriteLine("1. Products");
             Console.WriteLine("2. Brands");

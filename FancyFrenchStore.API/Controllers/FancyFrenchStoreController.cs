@@ -63,7 +63,7 @@ namespace FancyFrenchStore.API.Controllers
             return await _context.Brands.ToListAsync();
         }
         [HttpGet("Brands/{id}")]
-        public async Task<ActionResult<Brand>> GetBrand(Guid id)
+        public async Task<ActionResult<Brand>> GetBrand(int id)
         {
             if (_context.Brands == null)
             {

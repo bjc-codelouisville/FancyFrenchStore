@@ -1,45 +1,43 @@
-﻿using FancyFrenchStore;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
 
-public class ProductBrandDTO
+
+namespace FancyFrenchStore
 {
-    public int Id { get; set; }
-    public string? SKU { get; set; }
-    public string? UPC { get; set; }
-    public string? Name { get; set; }
-    public string? BrandName { get; set; }
-    public decimal? Price { get; set; }
-}
 
-public class ProductService
-{
-    private readonly FancyFrenchStoreContext _context;
-
-    public ProductService(FancyFrenchStoreContext context)
+    public class ProductBrandDTO
     {
-        _context = context;
+        public Guid Id { get; set; }
+        public string? SKU { get; set; }
+        public string? UPC { get; set; }
+        public string? Brand { get; set; }
+        public string? Name { get; set; }
+        public decimal? Price { get; set; }
     }
 
-    public List<ProductBrandDTO> GetProductsWithBrand()
+    public class ProductBrandDTOContext : DbContext
     {
-        var query = @"
-            SELECT
-                Products.Id,
-                Products.SKU,
-                Products.UPC,
-                Products.Name,
-                Brands.Name AS BrandName,
-                Products.Price
-            FROM
-                Products INNER JOIN
-                Brands ON Products.BrandID = Brands.Id";
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(
+                "Data Source= (localdb)\\MSSQLLocalDB; Initial Catalog=FancyFrenchStoreData");
+        }
 
-        var result = _context.Set<ProductBrandDTO>()
-                             .FromSqlRaw(query)
-                             .ToList();
-
-        return result;
+        public List<ProductBrandDTO> GetProductsWithBrands()
+        {
+            var sqlQuery = @"
+                SELECT
+                    Products.Id,
+                    Products.SKU,
+                    Products.UPC,
+                    Brands.Name AS Brand,
+                    Products.Name,
+                    Products.Price
+                FROM
+                    Products INNER JOIN
+                    Brands ON Products.BrandID = Brands.Id";
+            return Set<ProductBrandDTO>().FromSqlRaw(sqlQuery).ToList();
+        }
     }
 }
