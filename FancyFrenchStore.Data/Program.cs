@@ -52,32 +52,7 @@ class Program
                     //}
                     if (userInput == "4")
                     {
-                        //using (var context = new FancyFrenchStoreContext())
-                        //{
-                        //    var productsWithBrands = ProductService.GetProductsWithBrandsAsync();
-                        //    Console.WriteLine("ID\tSKU\t\tUPC\t\tBrand\t\tName\t\t\tPrice");
-                        //    Console.WriteLine("-------------------------------------------------------------------------");
-                        //    foreach (var product in productsWithBrands)
-                        //    {
-                        //        //Console.WriteLine($"{product.Id,-5} {product.SKU,-10} {product.UPC,-15} {product.Brand,-20} {product.Name,-25} ${product.Price,10:N2}");
-                        //        Console.WriteLine($"{product.Id}\t{product.SKU}\t{product.UPC}\t{product.Brand}\t{product.Name}\t${product.Price}");
-                        //    }
-                        //}
-                        {
-                            static async Task Main(string[] args)
-                            {
-                                // Assuming you have setup DI and configuration appropriately
-                                var context = new FancyFrenchStoreContext(); // Initialize this with the correct options
-                                var productService = new ProductService(context);
-
-                                var productsWithBrands = await productService.GetProductsWithBrandsAsync();
-
-                                foreach (var product in productsWithBrands)
-                                {
-                                    Console.WriteLine($"ID: {product.Id}, SKU: {product.SKU}, UPC: {product.UPC}, Brand: {product.Brand}, Name: {product.Name}, Price: {product.Price}");
-                                }
-                            }
-                        }
+                        productLogic.ProductServicePrint();
                     }
                     Console.WriteLine("----------");
                     Console.WriteLine("Products Menu");
@@ -161,7 +136,6 @@ class Program
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             userInput = Console.ReadLine();
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
-
         }
     }
 }

@@ -36,7 +36,7 @@ namespace FancyFrenchStore
                 myProduct.ProdPkgHeight = Convert.ToDecimal(Console.ReadLine());
                 Console.WriteLine("Enter a ProdPkgWeight (as a decimal):");
                 myProduct.ProdPkgWeight = Convert.ToDecimal(Console.ReadLine());
-                Console.WriteLine("Enter a Discontinued (true or false:");
+                Console.WriteLine("Enter a Discontinued (true or false:)");
                 myProduct.Discontinued = Convert.ToBoolean(Console.ReadLine());
 
                 context.Products.Add(myProduct);
@@ -48,7 +48,6 @@ namespace FancyFrenchStore
         {
             using (var context = new FancyFrenchStoreContext())
             {
-                //Console.WriteLine($"ID: {Id}, SKU: {SKU}, UPC: {UPC}, Name: {Name}, Brand ID: {BrandID}, Model: {Model}, Description: {Description}, Price: {Price:C}, Packaging LxWxH: {ProdPkgLength}x{ProdPkgWidth}x{ProdPkgHeight}, Weight: {ProdPkgWeight}kg, Discontinued: {Discontinued}, Created: {CreatedDate}, Updated: {UpdatedDate}");
                 foreach (var product in context.Products)
                 {
                     Console.WriteLine("<-------------------- Begin Product -------------------->");
@@ -69,6 +68,18 @@ namespace FancyFrenchStore
                     Console.WriteLine("Product Name: " + product.Name);
                     Console.WriteLine("Product Price: " + product.Price);
                 }
+            }
+        }
+        public void ProductServicePrint()
+        {
+            var context = new FancyFrenchStoreContext();
+            var productService = new ProductService(context);
+
+            var productsWithBrands = productService.GetProductsWithBrands();
+
+            foreach (var product in productsWithBrands)
+            {
+                Console.WriteLine($"ID: {product.Id}, SKU: {product.SKU}, UPC: {product.UPC}, Brand: {product.Brand}, Name: {product.Name}, Price: {product.Price}");
             }
         }
     }
